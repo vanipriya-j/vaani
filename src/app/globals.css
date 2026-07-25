@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f7f6f3;
+  --foreground: #0f1c2e;
+  --accent: #3f4fd9;
+  --warn: #c47b16;
+  --blocked: #c0392b;
+  --grounded: #1f7a4d;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #e8eafb;
+  color: #0f1c2e;
+}
+
+@layer utilities {
+  .slide-shell {
+    @apply relative flex h-screen w-screen flex-col overflow-hidden bg-canvas text-ink;
+  }
+
+  .slide-content {
+    @apply flex flex-1 flex-col justify-center px-10 py-12 md:px-16 lg:px-24;
+  }
+
+  .eyebrow {
+    @apply mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent md:text-base;
+  }
+
+  .slide-title {
+    @apply font-display text-4xl font-semibold leading-tight tracking-tight text-ink md:text-5xl lg:text-6xl;
+  }
+
+  .slide-subtitle {
+    @apply mt-4 max-w-4xl text-xl leading-relaxed text-ink-soft md:text-2xl;
+  }
+
+  .code-block {
+    @apply overflow-hidden rounded-xl border border-ink/10 bg-white/80 p-5 font-mono text-sm leading-relaxed text-ink md:text-base;
+  }
+
+  .flow-step {
+    @apply rounded-lg border border-ink/10 bg-white/70 px-4 py-3 text-lg font-medium text-ink md:text-xl;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-md border border-ink/10 bg-white px-3 py-1.5 text-sm font-medium text-ink md:text-base;
+  }
+
+  .badge-covered {
+    @apply inline-flex items-center rounded-md bg-accent-soft px-3 py-1 text-sm font-semibold text-accent;
+  }
+
+  .badge-warn {
+    @apply inline-flex items-center rounded-md bg-warn-soft px-3 py-1 text-sm font-semibold text-warn;
+  }
+
+  .badge-blocked {
+    @apply inline-flex items-center rounded-md bg-blocked-soft px-3 py-1 text-sm font-semibold text-blocked;
+  }
+
+  .badge-grounded {
+    @apply inline-flex items-center rounded-md bg-grounded-soft px-3 py-1 text-sm font-semibold text-grounded;
+  }
+
+  .demo-shell {
+    @apply min-h-screen overflow-y-auto bg-canvas text-ink;
+  }
+
+  .demo-panel {
+    @apply rounded-2xl border border-ink/10 bg-white/80 p-5 shadow-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-base font-semibold text-white transition hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-ink/15 bg-white px-5 py-3 text-base font-semibold text-ink transition hover:bg-white/80 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-blocked/30 bg-blocked-soft px-5 py-3 text-base font-semibold text-blocked transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+}
